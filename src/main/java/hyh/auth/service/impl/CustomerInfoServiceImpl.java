@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import hyh.auth.dao.ICustomerInfoDao;
 import hyh.auth.model.CustomerInfo;
+import hyh.auth.pagemodel.TableCol;
 import hyh.auth.service.ICustomerInfoService;
 
 @Service
@@ -17,7 +18,11 @@ public class CustomerInfoServiceImpl implements ICustomerInfoService{
 	@Override
 	public List<CustomerInfo> findAll() {
 		// TODO Auto-generated method stub
-		return customerInfoDao.find("from CustomerInfo");
+//		List<TableCol> cols = customerInfoDao.getTableColumns();
+//		for (TableCol tableCol : cols) {
+//			System.out.println(tableCol.getColumnName() + ":" + tableCol.getDataType() + ":" + tableCol.getColumnComment());
+//		}
+		return customerInfoDao.find("from " + CustomerInfo.class.getName());
 	}
 	
 }

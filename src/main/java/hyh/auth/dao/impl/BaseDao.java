@@ -1,6 +1,7 @@
 package hyh.auth.dao.impl;
 
 import java.io.Serializable;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.math.BigInteger;
@@ -8,6 +9,8 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+
+import javax.persistence.Table;
 
 import org.hibernate.Query;
 import org.hibernate.SQLQuery;
@@ -316,7 +319,14 @@ public abstract class BaseDao<T> implements IBaseDao<T> {
 		List<TableCol> talblColList = new LinkedList<TableCol>();
 		Map<String, Object> params = new HashMap<String, Object>();
 		String sql = "Select COLUMN_NAME, DATA_TYPE, COLUMN_COMMENT  from INFORMATION_SCHEMA.COLUMNS  Where table_name =:table_name";
-		params.put("table_name", entityClass.getName());
+		String tableName = "";
+		for (Annotation annotation : entityClass.getAnnotations()) {
+			if(annotation instanceof Table){
+				Table table = (Table)annotation;
+				tableName = table.name();
+			}
+		}
+		params.put("table_name", tableName);
 		List<Object[]> columnList = findBySql(sql, params);
 		if (columnList != null && columnList.size() > 0) {
 			for (int i = 0; i < columnList.size(); i++) {
