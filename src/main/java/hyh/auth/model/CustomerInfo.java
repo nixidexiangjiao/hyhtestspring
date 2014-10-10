@@ -1,5 +1,12 @@
 package hyh.auth.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "auth_customer_info")
 public class CustomerInfo {
 	private String cstNo;
 	private String cstName;
@@ -7,6 +14,8 @@ public class CustomerInfo {
 	private String fax;
 	private String phone;
 
+	@Id
+	@Column(name = "cst_no", nullable = false)
 	public String getCstNo() {
 		return cstNo;
 	}
@@ -15,6 +24,7 @@ public class CustomerInfo {
 		this.cstNo = cstNo;
 	}
 
+	@Column(name = "cst_name", nullable = false)
 	public String getCstName() {
 		return cstName;
 	}
@@ -23,6 +33,7 @@ public class CustomerInfo {
 		this.cstName = cstName;
 	}
 
+	@Column(name = "cst_desc")
 	public String getCstDesc() {
 		return cstDesc;
 	}
@@ -31,6 +42,7 @@ public class CustomerInfo {
 		this.cstDesc = cstDesc;
 	}
 
+	@Column(name = "fax")
 	public String getFax() {
 		return fax;
 	}
@@ -39,6 +51,7 @@ public class CustomerInfo {
 		this.fax = fax;
 	}
 
+	@Column(name = "phone")
 	public String getPhone() {
 		return phone;
 	}

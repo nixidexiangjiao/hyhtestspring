@@ -1,5 +1,12 @@
 package hyh.auth.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "auth_user_info")
 public class UserInfo {
 	private String userID;
 	private String loginID;
@@ -13,6 +20,8 @@ public class UserInfo {
 	private String cstNo;
 	private Integer createUserCount;
 
+	@Id
+	@Column(name = "user_id", nullable = false)
 	public String getUserID() {
 		return userID;
 	}
@@ -21,6 +30,7 @@ public class UserInfo {
 		this.userID = userID;
 	}
 
+	@Column(name = "login_id", unique = true, nullable = false)
 	public String getLoginID() {
 		return loginID;
 	}
@@ -29,6 +39,7 @@ public class UserInfo {
 		this.loginID = loginID;
 	}
 
+	@Column(name = "username", nullable = false)
 	public String getUserName() {
 		return userName;
 	}
@@ -37,6 +48,7 @@ public class UserInfo {
 		this.userName = userName;
 	}
 
+	@Column(name = "password", nullable = false)
 	public String getPassword() {
 		return password;
 	}
@@ -45,6 +57,7 @@ public class UserInfo {
 		this.password = password;
 	}
 
+	@Column(name = "user_type", nullable = false)
 	public Integer getUserType() {
 		return userType;
 	}
@@ -53,6 +66,7 @@ public class UserInfo {
 		this.userType = userType;
 	}
 
+	@Column(name = "effective_dt")
 	public String getEffectiveDate() {
 		return effectiveDate;
 	}
@@ -61,6 +75,7 @@ public class UserInfo {
 		this.effectiveDate = effectiveDate;
 	}
 
+	@Column(name = "level", nullable = false)
 	public Integer getLevel() {
 		return level;
 	}
@@ -69,6 +84,7 @@ public class UserInfo {
 		this.level = level;
 	}
 
+	@Column(name = "creator", nullable = false)
 	public String getCreator() {
 		return creator;
 	}
@@ -77,6 +93,7 @@ public class UserInfo {
 		this.creator = creator;
 	}
 
+	@Column(name = "creattime", nullable = false)
 	public String getCreateTime() {
 		return createTime;
 	}
@@ -85,6 +102,7 @@ public class UserInfo {
 		this.createTime = createTime;
 	}
 
+	@Column(name = "cst_no")
 	public String getCstNo() {
 		return cstNo;
 	}
@@ -93,6 +111,7 @@ public class UserInfo {
 		this.cstNo = cstNo;
 	}
 
+	@Column(name = "create_user_count")
 	public Integer getCreateUserCount() {
 		return createUserCount;
 	}
