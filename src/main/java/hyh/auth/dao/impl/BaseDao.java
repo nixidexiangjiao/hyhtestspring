@@ -324,6 +324,7 @@ public abstract class BaseDao<T> implements IBaseDao<T> {
 			if(annotation instanceof Table){
 				Table table = (Table)annotation;
 				tableName = table.name();
+				break;
 			}
 		}
 		params.put("table_name", tableName);
