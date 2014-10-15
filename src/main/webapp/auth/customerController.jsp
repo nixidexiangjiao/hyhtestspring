@@ -40,6 +40,8 @@
 	function enable() {
 		$('#cc').combobox('enable');
 	}
+	console.log('test');
+	parent.$.messager.progress('close');
 </script>
 </head>
 <body>
