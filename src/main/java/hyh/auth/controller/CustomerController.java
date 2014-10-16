@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import hyh.auth.model.CustomerInfo;
+import hyh.auth.pagemodel.DataGrid;
 import hyh.auth.pagemodel.Message;
 import hyh.auth.service.ICustomerInfoService;
 
@@ -28,11 +29,12 @@ public class CustomerController extends BaseController{
 	
 	@RequestMapping(value = "/findAll", method = {RequestMethod.POST})
 	@ResponseBody
-	public Message findAll() {
-		Message message = new Message("0", "成功");
+	public DataGrid findAll() {
+		DataGrid dataGrid = new DataGrid();
 		List<CustomerInfo> customerInfos = customerInfoService.findAll();
-		message.setData(customerInfos);
-		return message;
+		dataGrid.setTotal(customerInfos.size());
+		dataGrid.setRows(customerInfos);
+		return dataGrid;
 	}
 	
 }

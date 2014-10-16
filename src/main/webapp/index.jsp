@@ -20,10 +20,11 @@
 	type="text/javascript" charset="utf-8"></script>
 <script src="${pageContext.request.contextPath}/jslib/jquery.cookie.js"
 	type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/jslib/jquery-easyui-1.3.3/locale/easyui-lang-zh_CN.js" charset="utf-8"></script>
 </head>
 <body class="easyui-layout">
     <div data-options="region:'north',split:true" style="height:100px;"></div>
-    <div data-options="region:'west',href:'${pageContext.request.contextPath}/menu.jsp', split:true" style="width:200px;"></div>
-    <div data-options="region:'center',href:'${pageContext.request.contextPath}/centre.jsp'" style="padding:5px;background:#eee;"></div>
+    <div title="目录" data-options="region:'west',href:'${pageContext.request.contextPath}/menu.jsp', split:true,collapsible:false" style="width:200px;"></div>
+    <div data-options="region:'center',href:'${pageContext.request.contextPath}/centre.jsp'" style="padding:0px;background:#eee;"></div>
 </body>
 </html>

@@ -55,7 +55,7 @@
 	}
 	
 </script>
-<div id="layout_center_tabs" style="overflow: hidden;">
+<div id="layout_center_tabs" style="overflow: hidden;border:false;">
 	<div title="首页"
 		data-options="href:'${pageContext.request.contextPath}/main.jsp'"
 		style="overflow-x: hidden"></div>
